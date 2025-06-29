@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Productos</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Productos</h2>
+        <a href="/products/new">➕ Nuevo producto</a>
+        <ul>
+            {{range .}}
+            <li>
+                <strong>{{.Name}}</strong><br>
+                ${{printf "%.2f" .Price}} – Stock: {{.Stock}}<br>
+                <a href="/products/edit?id={{.ID}}">✏️ Editar</a> |
+                <a href="/products/delete?id={{.ID}}">🗑️ Eliminar</a>
+            </li>
+            <hr>
+            {{end}}
+        </ul>
+        <a href="/logout">Cerrar sesión</a>
+    </div>
+</body>
+</html>
